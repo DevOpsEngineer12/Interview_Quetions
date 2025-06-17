@@ -138,4 +138,29 @@
 # ⚙️ Azure & DevOps Strategy
 ...
 # 🚨 System Monitoring & Incident Handling
-...
+### ✅ You receive alerts of latency in production — how would you isolate if it’s a DNS, app, or infra issue?
+DNS: Use dig/nslookup to test resolution. Check CoreDNS metrics if in AKS.
+
+App: Review logs, APM traces (e.g., Application Insights).
+
+Infra: Check node metrics, container resource usage, network policies.
+
+Correlate logs using Log Analytics or Grafana + Loki.
+
+### ✅ What tools do you prefer for proactive monitoring of AKS ingress traffic?
+Azure Monitor + Container Insights for node/pod metrics.
+
+NGINX Ingress Controller with Prometheus and Grafana dashboards.
+
+Application Gateway Ingress Controller (AGIC) for WAF + metrics.
+
+Datadog or New Relic for unified observability if available.
+
+### ✅ How would you implement alert deduplication and escalation policies?
+Use Azure Monitor Action Groups with suppression rules.
+
+Centralize alerts into ITSM tools (e.g., PagerDuty, ServiceNow).
+
+Route alerts based on severity; use email, SMS, or webhook channels.
+
+Apply cooldown periods to avoid alert fatigue.
